@@ -6,6 +6,11 @@ struct node {
     struct  node* next;
 };
 
+/*
+* Build the list {1, 2, 3} in the heap and store
+* its head pointer in a local stack variable.
+* Returns the head pointer to the caller.
+*/
 struct node* BuildOneTwoThree() {
     struct node* head = NULL;
     struct node* second = NULL;
