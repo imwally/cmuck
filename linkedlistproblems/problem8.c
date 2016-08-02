@@ -61,6 +61,7 @@ void Append(struct node** aRef, struct node** bRef) {
     struct node* newB = malloc(sizeof(struct node));
     newB->data = (*bRef)->data;
     newB->next = (*bRef)->next;
+    free(*bRef);
     *bRef = NULL;
 
     // Link end of list A to new B head.
