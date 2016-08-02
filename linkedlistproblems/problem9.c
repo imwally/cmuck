@@ -58,7 +58,6 @@ int ListLength(struct node* head) {
 }
 
 void FrontBackSplit(struct node* source, struct node** frontRef, struct node** backRef) {
-
     int length = ListLength(source);
     // The front list will always contain the extra element of an odd length source list.
     int frontLength = (length / 2) + (length % 2); 
