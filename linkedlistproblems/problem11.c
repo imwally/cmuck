@@ -24,6 +24,17 @@ void Push(struct node** headRef, int data) {
     *headRef = newNode;
 }   
 
+int Pop(struct node** headRef) {
+    struct node* head = *headRef;
+    assert(head != NULL);
+    
+    int value = head->data;
+    *headRef = head->next;
+    free(head);
+
+    return value;
+}
+
 void PrintList(struct node* head) {
     struct node* current;
 
@@ -36,12 +47,7 @@ void PrintList(struct node* head) {
 }
 
 void MoveNode(struct node** destRef, struct node** sourceRef) {
-    assert(*sourceRef != NULL);
-    Push(destRef, (*sourceRef)->data);
-
-    struct node* oldSourceRef = *sourceRef; 
-    *sourceRef = (*sourceRef)->next;
-    free(oldSourceRef);
+    Push(destRef, Pop(sourceRef));
 }
 
 int main(int argc, char *arg[]) {
