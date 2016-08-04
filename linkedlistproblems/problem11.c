@@ -37,10 +37,7 @@ void PrintList(struct node* head) {
 
 void MoveNode(struct node** destRef, struct node** sourceRef) {
     assert(*sourceRef != NULL);
-    struct node* sourceHeadCopy = malloc(sizeof(struct node));
-    sourceHeadCopy->data = (*sourceRef)->data;
-    sourceHeadCopy->next = *destRef;
-    *destRef = sourceHeadCopy;
+    Push(destRef, (*sourceRef)->data);
 
     struct node* oldSourceRef = *sourceRef; 
     *sourceRef = (*sourceRef)->next;
