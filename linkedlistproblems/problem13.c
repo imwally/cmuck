@@ -63,16 +63,31 @@ struct node* ShuffleMerge(struct node* a, struct node* b) {
     struct node* newListHead = newList;
 
     int count = 1;
-    while (currentA != NULL || currentB != NULL) {
+    while (currentA != NULL && currentB != NULL) {
         if (count % 2 == 0) {
             newList->next = NewNode(currentA->data, NULL);
             currentA = currentA->next;
+            newList = newList->next;
             count++;
         } else {
             newList->next = NewNode(currentB->data, NULL);
             currentB = currentB->next;
+            newList = newList->next;
             count--; 
         }
+    }
+    
+    struct node* remainingCurrent;
+    if (currentA != NULL) {
+        remainingCurrent = currentA;
+    }
+    if (currentB != NULL) {
+        remainingCurrent = currentB;
+    }
+
+    while (remainingCurrent != NULL) {
+        newList->next = NewNode(remainingCurrent->data, NULL);
+        remainingCurrent = remainingCurrent->next;
         newList = newList->next;
     }
     
@@ -86,6 +101,9 @@ int main(int argc, char *arg[]) {
     Push(&listA, 1);
 
     struct node* listB = NULL;
+    Push(&listB, 9);
+    Push(&listB, 10);
+    Push(&listB, 14);
     Push(&listB, 1);
     Push(&listB, 13);
     Push(&listB, 7);
