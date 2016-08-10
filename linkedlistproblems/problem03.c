@@ -1,5 +1,5 @@
 /*
- * Problem 3
+ * Problem 3 - DeleteList()
  *
  * Write a function DeleteList() that takes a list, deallocates all of
  * its memory and sets its head pointer to NULL (the empty list).

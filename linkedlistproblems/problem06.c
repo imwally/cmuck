@@ -1,5 +1,5 @@
 /* 
- * Problem 6
+ * Problem 6 - SortedInsert()
  * 
  * Write a SortedInsert() function which given a list that is sorted in
  * increasing order, and a single node, inserts the node into the correct

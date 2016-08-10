@@ -1,5 +1,5 @@
 /*
- * Problem 8
+ * Problem 8 - Append()
  * 
  * Write an Append() function that takes two lists, 'a' and 'b', appends 'b'
  * onto the end of 'a', and then sets 'b' to NULL (since it is now trailing off

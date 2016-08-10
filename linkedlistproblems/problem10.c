@@ -1,5 +1,5 @@
 /*
- * Problem 10
+ * Problem 10 - RemoveDuplicates()
  *
  * Write a RemoveDuplicates() function which takes a list sorted in increasing
  * order and deletes any duplicate nodes from the list. Ideally, the list

@@ -1,5 +1,5 @@
 /*
- * Problem 7
+ * Problem 7 - InsertSort()
  *
  * Write an InsertSort() function which given a list, rearranges its nodes so
  * they are sorted in increasing order. It should use SortedInsert().

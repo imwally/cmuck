@@ -1,5 +1,5 @@
 /*
- * Problem 1
+ * Problem 1 - Count()
  *
  * Write a Count() function that counts the number of times a given
  * int occurs in a list. The code for this has the classic list

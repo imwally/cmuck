@@ -1,5 +1,5 @@
 /*
- * Problem 12
+ * Problem 12 - AlternatingSplit()
  * 
  * Write a function AlternatingSplit() that takes one list and divides up its
  * nodes to make two smaller lists. The sublists should be made from

@@ -1,5 +1,5 @@
 /*
- * Problem 5
+ * Problem 5 - InsertNth()
  *
  * A more difficult problem is to write a function InsertNth() which
  * can insert a new node at any index within a list. Push() is

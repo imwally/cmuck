@@ -1,5 +1,5 @@
 /*
- * Problem 14
+ * Problem 14 - SortedMerge()
  * 
  * Write a SortedMerge() function that takes two lists, each of which is sorted
  * in increasing order, and merges the two together into one list which is in

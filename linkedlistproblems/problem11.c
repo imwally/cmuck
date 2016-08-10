@@ -1,5 +1,5 @@
 /*
- * Problem 11
+ * Problem 11 - MoveNode()
  *
  * This is a variant on Push(). Instead of creating a new node and pushing it
  * onto the given list, MoveNode() takes two lists, removes the front node from

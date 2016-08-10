@@ -1,5 +1,5 @@
 /*
- * Problem 4
+ * Problem 4 - Pop()
  *
  * Write a Pop() function that is the inverse of Push(). Pop() takes a
  * non-empty list, deletes the head node, and returns the head node's
