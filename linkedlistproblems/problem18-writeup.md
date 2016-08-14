@@ -11,16 +11,22 @@ deconstructs the list into it's head and the rest of the list. It looks similar
 to this on each recursive call:
 
 ### 1.
+```
 head = 10
 rest = 9->8->7 ...
+```
 
 ### 2.
+```
 head = 9
 rest = 8->7->6 ...
+```
 
 ### 3.
+```
 head = 8
 rest = 7->6->5 ...
+```
 
 
 But when `rest` finally reaches `NULL` the function returns where the stack
