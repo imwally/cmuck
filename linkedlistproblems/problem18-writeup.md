@@ -91,19 +91,37 @@ head->next = NULL
 before assignment:
 ```
 head->next->next = NULL 
-head->next = 1 
+head->next = 2 
 
-*headRef = 2 
+*headRef = 3 
 
 ```
 
 after assignment:
 ```
-head->next->next = 2 
+head->next->next = 3 
 head->next = NULL 
 
 *headRef = 1 
 
 ```
 
+### 3.
+before assignment:
+```
+head->next->next = NULL 
+head->next = 3 
+
+*headRef = 4 
+
+```
+
+after assignment:
+```
+head->next->next = 4 
+head->next = NULL 
+
+*headRef = 1 
+
+```
 
