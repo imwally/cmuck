@@ -141,7 +141,6 @@ head->next->next = NULL
 head->next = 1 
 
 *headRef = 2 
-
 ```
 
 after assignment:
@@ -150,7 +149,6 @@ head->next->next = 2
 head->next = NULL 
 
 *headRef = 1 
-
 ```
 
 ### 2. 
@@ -160,7 +158,6 @@ head->next->next = NULL
 head->next = 2 
 
 *headRef = 3 
-
 ```
 
 after assignment:
@@ -169,7 +166,6 @@ head->next->next = 3
 head->next = NULL 
 
 *headRef = 1 
-
 ```
 
 ### 3.
@@ -179,7 +175,6 @@ head->next->next = NULL
 head->next = 3 
 
 *headRef = 4 
-
 ```
 
 after assignment:
@@ -188,12 +183,9 @@ head->next->next = 4
 head->next = NULL 
 
 *headRef = 1 
-
 ```
 
-head = 2->1->NULL
-
-head->next->next = 2
-head->next = NULL;
-
-
+You'll notice `*headRef` will always point to 1 on each recursive call. This
+makes sense, the head should now be the last element of the original list. The
+interesting part though is the assignment of `head->next->next` to `head`. So
+what's really happening here?
