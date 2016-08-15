@@ -90,7 +90,7 @@ frame #9:
 
 The unique thing in this case are the few lines of code *after* the recursive
 call. This is where the new list is built in reverse as the stack shrinks and
-execution returns to the frame below it.
+execution returns to each frame below itself.
 
 
 ``` C
