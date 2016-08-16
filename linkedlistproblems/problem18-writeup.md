@@ -231,7 +231,8 @@ head   rest
 ```
 
 So the line that assigns `head->next = NULL` is terminating this infinite loop
-but keep in mind that what it pointed to, `rest` is not removed.
+but keep in mind that what it pointed to, the same thing that `rest` points to
+is not removed.
 
 ```
 head      rest
