@@ -136,7 +136,7 @@ look like this:
 
 ### 1.
 before assignment:
-```
+```C
 head->next->next = NULL 
 head->next = 1 
 
@@ -144,7 +144,7 @@ head->next = 1
 ```
 
 after assignment:
-```
+```C
 head->next->next = 2 
 head->next = NULL 
 
@@ -153,7 +153,7 @@ head->next = NULL
 
 ### 2. 
 before assignment:
-```
+```C
 head->next->next = NULL 
 head->next = 2 
 
@@ -161,7 +161,7 @@ head->next = 2
 ```
 
 after assignment:
-```
+```C
 head->next->next = 3 
 head->next = NULL 
 
@@ -170,7 +170,7 @@ head->next = NULL
 
 ### 3.
 before assignment:
-```
+```C
 head->next->next = NULL 
 head->next = 3 
 
@@ -178,7 +178,7 @@ head->next = 3
 ```
 
 after assignment:
-```
+```C
 head->next->next = 4 
 head->next = NULL 
 
@@ -189,3 +189,89 @@ You'll notice `*headRef` will always point to 1 on each recursive call. This
 makes sense, the head should now be the last element of the original list. The
 interesting part though is the assignment of `head->next->next` to `head`. So
 what's really happening here?
+
+Without these 3 lines of code that shift pointers around `head` would look like
+this on each call in the stack rewind instead:
+
+### 1.
+```C
+2->1->NULL
+```
+
+### 2.
+```C
+3->2->1->NULL
+```
+
+### 3. 
+```C
+4->3->2->1->NULL
+```
+
+etc...
+
+Replacing the code with the actual list elements and following along down the
+stack you'll see the list being build.
+
+### 1.
+```C
+head->next->next = head (2->1->2->1->... infinite loop)
+head->next = NULL (2->NULL ends infinite loop from above)
+```
+
+The ONE thing to remember here is that `rest` pointed to `head->next` or the `1`.
+
+```
+head   rest
+ |       |
+ 2 ----> 1
+ ^       | 
+ |       |
+ +-------+
+```
+
+So the line that assigns `head->next = NULL` is terminating this infinite loop
+but keep in mind that what it pointed to, `rest` is not removed.
+
+```
+head      rest
+ |          |
+ 2 -> NULL  1
+ |          |
+ +----------+
+```
+
+And of course the last line reassigns `*headRef = rest` so it always points to
+the `1`. Keep following along...
+
+### 2.
+```C
+head->next->next = head (3->2->3->2->... infinite loop)
+head->next = NULL (3->NULL ends infinite loop from above)
+```
+
+`rest` pointed to the `1` which pointed to the `2` which now points to this new
+infinite loop.
+
+```
+head           rest
+ |               |
+ 3 ----> 2 <---- 1
+ ^       | 
+ |       |
+ +-------+
+```
+
+Once again the loop is terminated by setting `head->next = NULL`.
+
+```
+head              rest
+ |                  |
+ 3 -> NULL  2 <---- 1
+ ^          | 
+ |          |
+ +----------+
+```
+
+Eventually the stack will return to the original call to `RecursiveReverse()`
+with `10` as the head parameter and the list will be fully reversed.
