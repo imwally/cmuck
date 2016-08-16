@@ -6,9 +6,11 @@ tl;dr: The magic happens in the unwinding of the call stack of RecursiveReverse.
 
 Initially the `list` looks like this:
 
+```C
 10->9->8->7->6->5->4->3->2->1->NULL
+```
 
-The head of the list, 10, is passed to RecursiveReverse function where it
+The head of the list, `10`, is passed to `RecursiveReverse()` where it
 deconstructs the list into it's head and the rest of the list. It looks similar
 to this on each recursive call:
 
@@ -118,7 +120,7 @@ void RecursiveReverse(struct node** headRef) {
 }
 ```
 
-Looking at the call stack information from above you can see execution
+Looking at the call stack frame information from above you can see execution
 continues starting at #1, not #0. This is because in frame #0 `rest` reaches
 `NULL` and thus starting a return to each frame below as the stack shrinks.
 What happens though is execution continues in each frame on the lines just
