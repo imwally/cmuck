@@ -37,7 +37,8 @@ when to stop. In this instance there are actually two, one when `*headRef ==
 NULL` and one when `rest == NULL`. It's not hard to see that the list is
 shortened by 1 node on each call so when the list has been exhausted and `rest
 == NULL` the function returns. I always assumed that once a function returned
-then all code execution inside of that function ceases. Turns out I was wrong. 
+then all code execution inside of that function ceases. This is only partly
+correct.
 
 ## The Call Stack
 
@@ -51,19 +52,16 @@ always on top. In a very simple program where `main()` calls `a()` which calls
 `b()` the stack would look something like this when `b()` is called:
 
 ```
-frame #0 :
-    b()
-frame #1:
-    a()
-frame #3:
-    main()
+frame #0: b()
+frame #1: a()
+frame #3: main()
 ```
 
-Eventually execution will return to `main()` when `b()` then `a()` is finished.
-Applying this information to a recursive function it's easy to see how quickly
-the stack can grow each time the function calls itself. Specifically in the
-case of `RecursiveReverse()` and a list length of 10 it would look something
-like this:
+Eventually execution will return to `main()` when `b()` and then `a()` is
+finished.  Applying this information to a recursive function it's easy to see
+how quickly the stack can grow each time the function calls itself.
+Specifically in the case of `RecursiveReverse()` and a list length of 10 it
+would look something like this:
 
 
 ```
@@ -192,8 +190,8 @@ makes sense, the head should now be the last element of the original list. The
 interesting part though is the assignment of `head->next->next` to `head`. So
 what's really happening here?
 
-Without these 3 lines of code that shift pointers around `head` would look like
-this on each call in the stack rewind instead:
+Without these 3 lines of code that shift pointers around, `head` would look
+like this on each call in the stack rewind instead:
 
 ### 1.
 ```C
