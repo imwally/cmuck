@@ -17,14 +17,14 @@
 
 // Compute unique trees of 1 ... n number of nodes.
 int countTrees(int numKeys) {
-  if (numKeys == 1) {
-    return 1;
-  }
+	if (numKeys <= 1) {
+		return 1;
+	}
 
-  // Use catalan number formula.
-  return 2 * (2 * numKeys - 1) * countTrees(numKeys - 1) / (1 + numKeys);
+	// Use catalan number formula.
+	return 2 * (2 * numKeys - 1) * countTrees(numKeys - 1) / (1 + numKeys);
 }
 
 int main(int argc, char* argv[]) {
-  printf("%d\n", countTrees(4));
+	printf("%d\n", countTrees(4));
 }
